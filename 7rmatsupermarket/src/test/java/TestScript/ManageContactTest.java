@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.ManageContactPage;
 import utilities.ExcelUtility;
@@ -38,7 +39,7 @@ public class ManageContactTest extends Base{
 				managecontactpage.enterDeliverychargelimit(deliverychargelimitdetails);
 				managecontactpage.clickUpdate();				
 				boolean checkupdate=managecontactpage.isupdated();
-				Assert.assertTrue(checkupdate);
+				Assert.assertTrue(checkupdate, Constant.UPDATECONTACT);
 				
 				
 				

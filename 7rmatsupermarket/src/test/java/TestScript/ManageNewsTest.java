@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
@@ -28,7 +29,7 @@ public class ManageNewsTest extends Base{
 		managenewspage.enternews(newsmessage);
 		managenewspage.clicksave();
 		boolean alertdisplay=managenewspage.isNewsSaved();
-		Assert.assertTrue(alertdisplay);
+		Assert.assertTrue(alertdisplay, Constant.MANAGENEWS);
 	}
 
 	

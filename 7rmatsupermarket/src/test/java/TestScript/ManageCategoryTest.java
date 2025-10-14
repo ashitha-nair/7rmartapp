@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
@@ -33,7 +34,7 @@ public class ManageCategoryTest extends Base{
 	//	managecategorypage.clickSelectgroups();
 		managecategorypage.fileUpload();
 		boolean savecheck=managecategorypage.isSaveButtonDisplayed();
-		Assert.assertTrue(savecheck);
+		Assert.assertTrue(savecheck, Constant.ADDCATEGORY);
 	}
 
 }

@@ -41,7 +41,7 @@ public class LoginTest extends Base{
 		loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();
 		boolean alertdisplayed=loginpage.isalertmessagedisplayed();
-		Assert.assertTrue(alertdisplayed);
+		Assert.assertTrue(alertdisplayed, Constant.LOGININVALIDPASSWORD);
 	}
 @Test
 
@@ -56,7 +56,7 @@ public class LoginTest extends Base{
 		loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();
 		boolean alertdisplayed=loginpage.isalertmessagedisplayed();
-		Assert.assertTrue(alertdisplayed);
+		Assert.assertTrue(alertdisplayed, Constant.LOGININVALIDUSERNAME);
 	}
 @Test(dataProvider="LoginProvider")
 
@@ -71,7 +71,7 @@ public void verfiyTheUserIsAbleToLoginWithInvalidCredentials(String username, St
 	loginpage.enterThePassword(password);
 	loginpage.clickTheSignIn();
 	boolean alertdisplayed=loginpage.isalertmessagedisplayed();
-	Assert.assertTrue(alertdisplayed);
+	Assert.assertTrue(alertdisplayed, Constant.LOGININVALIDCREDENTIALS);
 }
 
 @DataProvider(name="LoginProvider") 
