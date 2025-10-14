@@ -2,6 +2,7 @@ package TestScript;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.testng.annotations.Parameters;
 
 import constant.Constant;
 import utilities.ScreenshotUtility;
+import utilities.WaitUtilities;
 
 public class Base {
 	Properties properties;
@@ -60,6 +62,7 @@ public class Base {
 		}
 		
 		driver.get(properties.getProperty("url"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtilities.IMPLICITWAIT));		
 		driver.manage().window().maximize();
 	}
 	

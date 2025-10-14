@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtilities;
+
 public class ManageFooterTextPage {
 	
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext' and @class='small-box-footer']")WebElement footermoreinfo;
@@ -60,6 +62,8 @@ public class ManageFooterTextPage {
 	
 	public void clickUpdate()
 	{
+		WaitUtilities waitutilities= new WaitUtilities();
+		waitutilities.waitForElement(driver, update);
 		update.click();
 	}
 	
