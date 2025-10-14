@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Crossbrowsertesting]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="ChromeTest(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="TestScript.ManageNewsTest">
+        <methods>
+          <include name="browserQuitandClose"/>
+          <include name="verfiyUserCanAccessManageNewsPage"/>
+          <include name="browserinitialisation"/>
+        </methods>
+      </class> <!-- TestScript.ManageNewsTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" name="FirefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="TestScript.LoginTest">
+        <methods>
+          <include name="browserQuitandClose"/>
+          <include name="verifyTheUserIsAbleToLoginWithValidCredentials"/>
+          <include name="browserinitialisation"/>
+        </methods>
+      </class> <!-- TestScript.LoginTest -->
+      <class name="TestScript.LogoutTest">
+        <methods>
+          <include name="customercanlogout"/>
+          <include name="browserQuitandClose"/>
+          <include name="browserinitialisation"/>
+        </methods>
+      </class> <!-- TestScript.LogoutTest -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Crossbrowsertesting] -->

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-10-10T11:04:37 IST" name="Suite" finished-at="2025-10-10T11:04:42 IST" duration-ms="5068">
+    <groups>
+      <group name="regression">
+        <method signature="AdminUsersTest.isUserAbleToAddNewUser()[pri:0, instance:TestScript.AdminUsersTest@350aac89]" name="isUserAbleToAddNewUser" class="TestScript.AdminUsersTest"/>
+      </group> <!-- regression -->
+    </groups>
+    <test started-at="2025-10-10T11:04:37 IST" name="Test" finished-at="2025-10-10T11:04:42 IST" duration-ms="5068">
+      <class name="TestScript.AdminUsersTest">
+        <test-method is-config="true" signature="browserinitialisation(java.lang.String)[pri:0, instance:TestScript.AdminUsersTest@350aac89]" started-at="2025-10-10T11:04:37 IST" name="browserinitialisation" finished-at="2025-10-10T11:04:39 IST" duration-ms="2092" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserinitialisation -->
+        <test-method signature="isUserAbleToAddNewUser()[pri:0, instance:TestScript.AdminUsersTest@350aac89]" started-at="2025-10-10T11:04:39 IST" name="isUserAbleToAddNewUser" finished-at="2025-10-10T11:04:42 IST" duration-ms="2767" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isUserAbleToAddNewUser -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:TestScript.AdminUsersTest@350aac89]" started-at="2025-10-10T11:04:42 IST" name="browserQuit" finished-at="2025-10-10T11:04:42 IST" duration-ms="173" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=isUserAbleToAddNewUser status=SUCCESS method=AdminUsersTest.isUserAbleToAddNewUser()[pri:0, instance:TestScript.AdminUsersTest@350aac89] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- TestScript.AdminUsersTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
