@@ -45,7 +45,7 @@ public class Listeners implements ITestListener {
  					.get(result.getInstance()); 
  		} catch (IllegalArgumentException e) { 
   
- 			e.printStackTrace(); //when the test fails adn throws exeption it will store in the report
+ 			e.printStackTrace(); //when the test fails and throws exeption it will store in the report
  		} catch (IllegalAccessException e) { 
   
  			e.printStackTrace(); 
@@ -85,7 +85,7 @@ public class Listeners implements ITestListener {
  		ITestListener.super.onStart(context); 
  	} 
   
- 	public void onFinish(ITestContext context) { //to report the generate flush need to be called otherwise it will not generate report.
+ 	public void onFinish(ITestContext context) { //to generate the report flush need to be called otherwise it will not generate report.
   
  		ITestListener.super.onFinish(context); 
  		extent.flush(); 
