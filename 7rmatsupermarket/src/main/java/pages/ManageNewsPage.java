@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ManageNewsPage {
 	
 	
-	@FindBy(xpath="(//a[@class='small-box-footer']//following::i)[13]")WebElement morenews;
+	//@FindBy(xpath="(//a[@class='small-box-footer']//following::i)[13]")WebElement morenews;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newbutton;
 	@FindBy(xpath="//textarea[@class='form-control']")WebElement news;
 	@FindBy(xpath="//button[@class='btn btn-danger']")WebElement save;
@@ -22,19 +22,20 @@ public class ManageNewsPage {
 		
 	}
 
-	public void clickmorenews()
+	/*public void clickmorenews()
 	{
 		morenews.click();
-	}
+	}*/
 
 	public void clicknewbutton()
 	{
 		newbutton.click();
 	}
 	
-	public void enternews(String newsmessage)
+	public ManageNewsPage enternews(String newsmessage)
 	{
 		news.sendKeys(newsmessage);
+		return this;
 	}
 	public void clicksave()
 	{

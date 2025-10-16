@@ -6,11 +6,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import constant.Constant;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base{
+	
+	ManageNewsPage managenewspPage;
+	HomePage homepage;
 	
 	@Test
 	
@@ -20,14 +24,14 @@ public class ManageNewsTest extends Base{
 		String password=ExcelUtility.getStringData(1, 1, "loginpage");
 		String newsmessage= ExcelUtility.getStringData(0, 0, "managenews");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();
 		ManageNewsPage managenewspage= new ManageNewsPage(driver);
-		managenewspage.clickmorenews();
+		managenewspage= homepage.clickmorenews();
 		managenewspage.clicknewbutton();
-		managenewspage.enternews(newsmessage);
-		managenewspage.clicksave();
+		managenewspage.enternews(newsmessage).clicksave();
+		//managenewspage.clicksave();
 		boolean alertdisplay=managenewspage.isNewsSaved();
 		Assert.assertTrue(alertdisplay, Constant.MANAGENEWS);
 	}

@@ -13,7 +13,7 @@ import utilities.FileUploadUtilities;
 
 public class ManageCategoryPage {
 	
-	@FindBy(xpath="//i[@class='fas fa-arrow-circle-right']//parent::a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")WebElement categorymoreinfo;
+	//@FindBy(xpath="//i[@class='fas fa-arrow-circle-right']//parent::a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")WebElement categorymoreinfo;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newbutton;
 	@FindBy(xpath="//input[@id='category']")WebElement category;
 	@FindBy(xpath="//div[@class='ms-selectable']//child::ul")WebElement selectgroups1;
@@ -29,19 +29,21 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickCategoryMoreinfo()
+	/*public void clickCategoryMoreinfo()
 	{
 		categorymoreinfo.click();
-	}
+	}*/
 	
-	public void clickNewButton()
+	public ManageCategoryPage clickNewButton()
 	{
 		newbutton.click();
+		return this;
 	}
 	
-	public void enterCategory(String categorydetails)
+	public ManageCategoryPage enterCategory(String categorydetails)
 	{
 		category.sendKeys(categorydetails);
+		return this;
 	}
 	
 //	public  void clickSelectgroups()
@@ -50,11 +52,12 @@ public class ManageCategoryPage {
 		//selectgroups1.click();
 	}
 	
-	public void fileUpload()
+	public ManageCategoryPage fileUpload()
 	{
 		//choosefile.sendKeys(Constant.Constant.TESTIMAGE);
 		FileUploadUtilities fileuploadutilities=new FileUploadUtilities();
 		fileuploadutilities.fileuploadUsingSendkeys(choosefile,Constant.TESTIMAGE);
+		return this;
 	}
 	
 	public boolean isSaveButtonDisplayed()

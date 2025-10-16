@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 import constant.Constant;
 import pages.LoginPage;
-import pages.LogoutPage;
+import pages.HomePage;
 import utilities.ExcelUtility;
 
-public class LogoutTest extends Base {
+public class HomeTest extends Base {
 	@Test
 	
 	
@@ -22,7 +22,7 @@ public class LogoutTest extends Base {
 		loginpage.enterTheUsername(username);
 		loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();		
-		LogoutPage logoutpage= new LogoutPage(driver);
+		HomePage logoutpage= new HomePage(driver);
 		logoutpage.clickadminbutton();
 		logoutpage.clicklogout();
 		boolean alertlogout= logoutpage.isloggedout();

@@ -9,7 +9,7 @@ import utilities.PageUtility;
 
 public class AdminUserPage {
 	
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement adminmoreinfo;
+	//@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement adminmoreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newbutton;
 	@FindBy(xpath="//input[@id='username']")WebElement username;
 	@FindBy(xpath="//input[@id='password']")WebElement password;
@@ -25,24 +25,27 @@ public AdminUserPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
-public void clickadminmoreinfo()
+/*public void clickadminmoreinfo()
 {
 	adminmoreinfo.click();
-}
+}*/
 
-public void clickNew()
+public AdminUserPage clickNew()
 {
 	newbutton.click();
+	return this;
 }
 
-public void enterusername(String adminusername)
+public AdminUserPage enterusername(String adminusername)
 {
 	username.sendKeys(adminusername);
+	return this;
 }
 
-public void enterpassword(String adminpassword)
+public AdminUserPage enterpassword(String adminpassword)
 {
 	password.sendKeys(adminpassword);
+	return this;
 }
 
 public void clickusertype()

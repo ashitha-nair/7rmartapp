@@ -10,7 +10,7 @@ import utilities.WaitUtilities;
 
 public class ManageFooterTextPage {
 	
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext' and @class='small-box-footer']")WebElement footermoreinfo;
+	//@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext' and @class='small-box-footer']")WebElement footermoreinfo;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=1' and @ class='btn btn-sm btn btn-primary btncss']")WebElement actionbutton;
 	@FindBy(xpath="//textarea[@id='content']")WebElement address;
 	@FindBy(xpath="//input[@id='email']")WebElement email;
@@ -26,11 +26,11 @@ public class ManageFooterTextPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickmoreinfo()
+	/*public void clickFootermoreinfo()
 	{
 		
 		footermoreinfo.click();
-	}
+	}*/
 	
 	public void clickActionButton()
 	{
@@ -38,26 +38,29 @@ public class ManageFooterTextPage {
 		actionbutton.click();
 	}
 	
-	public void enterAddress(String address2)
+	public ManageFooterTextPage enterAddress(String address2)
 	{
 		address.clear();
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].value=arguments[1];",address, address2 );
+		return this;
 		
 	}
 	
-	public void enterEmail(String email2)
+	public ManageFooterTextPage enterEmail(String email2)
 	{
 		email.clear();
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].value=arguments[1];",email, email2 );
+		return this;
 	}
 	
-	public void enterPhone(String phone2)
+	public ManageFooterTextPage enterPhone(String phone2)
 	{
 		phone.clear();
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].value=arguments[1];",phone, phone2 );
+		return this;
 	}
 	
 	public void clickUpdate()

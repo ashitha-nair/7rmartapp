@@ -8,11 +8,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import constant.Constant;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageContactPage;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends Base{
+	ManageContactPage managecontactpage;
+	HomePage homepage;
+	
 	@Test
 	
 	
@@ -26,17 +30,17 @@ public class ManageContactTest extends Base{
 		String deliverytimedetails=ExcelUtility.getIntegerData(3, 1, "managecontact");
 		String deliverychargelimitdetails=ExcelUtility.getIntegerData(4, 1, "managecontact");		
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();
-		ManageContactPage managecontactpage= new ManageContactPage(driver);
-				managecontactpage.clickContactMoreInfo();
+		//ManageContactPage managecontactpage= new ManageContactPage(driver);
+				managecontactpage= homepage.clickContactMoreInfo();
 				managecontactpage.clickAction();
-				managecontactpage.enterPhone(phonenumber);
-				managecontactpage.enterEmail(emailaddress);
-				managecontactpage.enterAddress(addressdetails);
-				managecontactpage.enterDeliverytime(deliverytimedetails);
-				managecontactpage.enterDeliverychargelimit(deliverychargelimitdetails);
+				managecontactpage.enterPhone(phonenumber).enterEmail(emailaddress).enterAddress(addressdetails).enterDeliverytime(deliverytimedetails).enterDeliverychargelimit(deliverychargelimitdetails);
+				//managecontactpage.enterEmail(emailaddress);
+				//managecontactpage.enterAddress(addressdetails);
+				//managecontactpage.enterDeliverytime(deliverytimedetails);
+				//managecontactpage.enterDeliverychargelimit(deliverychargelimitdetails);
 				managecontactpage.clickUpdate();				
 				boolean checkupdate=managecontactpage.isupdated();
 				Assert.assertTrue(checkupdate, Constant.UPDATECONTACT);

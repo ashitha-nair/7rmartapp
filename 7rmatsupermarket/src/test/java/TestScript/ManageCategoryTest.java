@@ -7,12 +7,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import constant.Constant;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
 
 public class ManageCategoryTest extends Base{
+	
+	ManageCategoryPage managecategorypage;
+	HomePage homepage;
 	
 	@Test
 	
@@ -22,17 +26,17 @@ public class ManageCategoryTest extends Base{
 		String password=ExcelUtility.getStringData(1, 1, "loginpage");
 		String categorydetails=ExcelUtility.getStringData(1, 0, "managecategory");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterTheUsername(username);
-		loginpage.enterThePassword(password);
+		loginpage.enterTheUsername(username).enterThePassword(password);
+		//loginpage.enterThePassword(password);
 		loginpage.clickTheSignIn();
-		ManageCategoryPage managecategorypage=new ManageCategoryPage(driver);
+		//ManageCategoryPage managecategorypage=new ManageCategoryPage(driver);
 		//PageUtility pageutility=new PageUtility();
 		//PageUtility.dragAndDrop(driver, selectgroups1, selectgroups2);
-		managecategorypage.clickCategoryMoreinfo();
-		managecategorypage.clickNewButton();
-		managecategorypage.enterCategory(categorydetails);
+		managecategorypage= homepage.clickCategoryMoreinfo();
+		managecategorypage.clickNewButton().enterCategory(categorydetails).fileUpload();
+		//managecategorypage.enterCategory(categorydetails);
 	//	managecategorypage.clickSelectgroups();
-		managecategorypage.fileUpload();
+		//managecategorypage.fileUpload();
 		boolean savecheck=managecategorypage.isSaveButtonDisplayed();
 		Assert.assertTrue(savecheck, Constant.ADDCATEGORY);
 	}

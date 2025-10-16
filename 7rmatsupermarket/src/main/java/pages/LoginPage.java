@@ -19,18 +19,21 @@ public LoginPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver,this);//initelements to initialise webelements.call pagefactory if we used FindBy annotation
 }
-public void enterTheUsername(String username2)
+public LoginPage enterTheUsername(String username2)
 {
 	username.sendKeys(username2);
+	return this;
 }
-public void enterThePassword(String password2)
+public LoginPage enterThePassword(String password2)
 {
 	password.sendKeys(password2);
+	return this;
 }
 
-public void clickTheSignIn()
+public HomePage clickTheSignIn()
 {
 	signin.click();
+	return new HomePage(driver);
 }
 public boolean isHomepageloaded()
 {
