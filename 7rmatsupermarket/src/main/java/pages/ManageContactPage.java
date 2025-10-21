@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageContactPage {
 	
 	
@@ -69,11 +71,13 @@ WebDriver driver;
 		deliverychargelimit.sendKeys(deliverychargelimitdetails);
 		return this;
 	}
-	public void clickUpdate()
+	public ManageContactPage clickUpdate()
 	{
-
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",update );
+		PageUtility pageutility=new PageUtility();
+		pageutility.clickElementByJS(driver, update);
+		//JavascriptExecutor js=(JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].click();",update );
+		return this;
 	}
 	public boolean isupdated()
 	{

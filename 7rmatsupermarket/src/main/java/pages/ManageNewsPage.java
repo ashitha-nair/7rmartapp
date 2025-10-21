@@ -37,9 +37,10 @@ public class ManageNewsPage {
 		news.sendKeys(newsmessage);
 		return this;
 	}
-	public void clicksave()
+	public ManageNewsPage clicksave()
 	{
 		save.click();
+		return this;
 	}
 	public boolean isNewsSaved()
 	{

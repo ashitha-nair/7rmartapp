@@ -48,18 +48,20 @@ public AdminUserPage enterpassword(String adminpassword)
 	return this;
 }
 
-public void clickusertype()
+public AdminUserPage clickusertype()
 {
 	PageUtility pageUtility=new PageUtility();
 	pageUtility.selectByIndex(usertype, 1);
+	return this;
 	
 	//usertype.click();
 	//return usertype;
 }
 
-public void clicksave()
+public AdminUserPage clicksave()
 {
 	save.click();
+	return this;
 }
 
 public boolean isalertdisplayed()

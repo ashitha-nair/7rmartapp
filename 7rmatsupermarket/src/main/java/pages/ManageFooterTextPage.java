@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
 import utilities.WaitUtilities;
 
 public class ManageFooterTextPage {
@@ -41,8 +42,8 @@ public class ManageFooterTextPage {
 	public ManageFooterTextPage enterAddress(String address2)
 	{
 		address.clear();
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value=arguments[1];",address, address2 );
+		PageUtility pageutility=new PageUtility();
+		pageutility.setValueByJS(driver, address, address2);
 		return this;
 		
 	}
@@ -50,24 +51,28 @@ public class ManageFooterTextPage {
 	public ManageFooterTextPage enterEmail(String email2)
 	{
 		email.clear();
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value=arguments[1];",email, email2 );
+		//JavascriptExecutor js=(JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].value=arguments[1];",email, email2 );
+		
+		PageUtility pageutility=new PageUtility();
+		pageutility.setValueByJS(driver, email, email2);
 		return this;
 	}
 	
 	public ManageFooterTextPage enterPhone(String phone2)
 	{
 		phone.clear();
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value=arguments[1];",phone, phone2 );
+		PageUtility pageutility=new PageUtility();
+		pageutility.setValueByJS(driver, phone, phone2);
 		return this;
 	}
 	
-	public void clickUpdate()
+	public ManageFooterTextPage clickUpdate()
 	{
 		WaitUtilities waitutilities= new WaitUtilities();
 		waitutilities.waitForElement(driver, update);
 		update.click();
+		return this;
 	}
 	
 	public boolean alertCheck()

@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -51,5 +52,19 @@ public class PageUtility {
 		 actions.moveToElement(element).perform();
 	 }
 	 
+	 public void clickElementByJS(WebDriver driver, WebElement element)
+	 {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();",element );
+	 }
+	 
+	 public void setValueByJS(WebDriver driver, WebElement element, String value)
+	 {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		// js.executeScript("arguments[0].value=arguments[1];",element, value );
+		 js.executeScript("arguments[0].value='" + value + "';", element);
+	 }
+	
+
 }
 

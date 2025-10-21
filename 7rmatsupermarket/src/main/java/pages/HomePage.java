@@ -55,9 +55,10 @@ public ManageNewsPage clickmorenews()
 	return new ManageNewsPage(driver);
 }
 
-public void clickadminbutton()
+public HomePage clickadminbutton()
 {
 	adminbutton.click();
+	return this;
 }
 
 public void clicklogout()
