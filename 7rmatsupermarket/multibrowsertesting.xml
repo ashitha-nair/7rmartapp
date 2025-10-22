@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="multibrowsertesting" parallel="tests">
-  <test name="ChromeTest">
-  <parameter name="browser" value="chrome"></parameter>
-    <classes>
-      <class name="TestScript.LoginTest">
-      <methods>
-      <include name="verifyTheUserIsAbleToLoginWithValidCredentials"></include>
-      </methods>
-      </class>
-      <class name="TestScript.LogoutTest"/>
-      <class name="TestScript.ManageNewsTest"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="FirefoxTest">
-  <parameter name="browser" value="firefox"></parameter>
-    <classes>
-      <class name="TestScript.LoginTest">
-      <methods>
-      <include name="verifyTheUserIsAbleToLoginWithValidCredentials"></include>
-      </methods>
-      </class>
-      <class name="TestScript.LogoutTest"/>
-      <class name="TestScript.ManageNewsTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<test name="ChromeTest">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="TestScript.LoginTest">
+				<methods>
+					<include
+						name="verifyTheUserIsAbleToLoginWithValidCredentials"></include>
+				</methods>
+			</class>
+			<class name="TestScript.LogoutTest" />
+			<class name="TestScript.ManageNewsTest" />
+		</classes>
+	</test> <!--
+	Test -->
+	<test name="FirefoxTest">
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="TestScript.LoginTest">
+				<methods>
+					<include
+						name="verifyTheUserIsAbleToLoginWithValidCredentials"></include>
+				</methods>
+			</class>
+			<class name="TestScript.LogoutTest" />
+			<class name="TestScript.ManageNewsTest" />
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

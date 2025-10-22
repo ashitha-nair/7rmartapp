@@ -21,58 +21,52 @@ import utilities.WaitUtilities;
 public class Base {
 	Properties properties;
 	FileInputStream fileinputstream;
-	
+
 	WebDriver driver;
+
 	@Parameters("browser")
 	@BeforeMethod
-	
+
 	public void browserinitialisation(String browser) throws Exception
-		
+
 	{
-		try 
-		{
-			properties =new Properties();
-			fileinputstream= new FileInputStream(Constant.CONFIGFILE);
+		try {
+			properties = new Properties();
+			fileinputstream = new FileInputStream(Constant.CONFIGFILE);
 			properties.load(fileinputstream);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		
-		if (browser.equalsIgnoreCase("chrome"))
-		{
-			driver=new ChromeDriver();
+
+		if (browser.equalsIgnoreCase("chrome")) {
+			driver = new ChromeDriver();
 		}
-		
-		else if (browser.equalsIgnoreCase("firefox"))
-		{
-			driver=new FirefoxDriver();
+
+		else if (browser.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
 		}
-		
-		else if (browser.equalsIgnoreCase("edge"))
-		{
-			driver=new EdgeDriver();
+
+		else if (browser.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
 		}
-		
-		else
-		{
+
+		else {
 			throw new Exception("invalid");
 		}
-		
+
 		driver.get(properties.getProperty("url"));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtilities.IMPLICITWAIT));		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtilities.IMPLICITWAIT));
 		driver.manage().window().maximize();
 	}
-	
-	@AfterMethod
-	 public void browserQuit(ITestResult iTestResult) throws IOException { 
- 		if (iTestResult.getStatus() == ITestResult.FAILURE) { 
- 			ScreenshotUtility scrShot = new ScreenshotUtility(); // creating obj 
- 			scrShot.getScreenShot(driver, iTestResult.getName());//get the name of the testcase 
- 		}
- 		
- 		driver.quit();
 
-}}
+	@AfterMethod
+	public void browserQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility scrShot = new ScreenshotUtility(); // creating obj
+			scrShot.getScreenShot(driver, iTestResult.getName());// get the name of the testcase
+		}
+
+		driver.quit();
+
+	}
+}

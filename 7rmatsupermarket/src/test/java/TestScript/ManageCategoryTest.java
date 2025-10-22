@@ -12,32 +12,29 @@ import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
+public class ManageCategoryTest extends Base {
 
-public class ManageCategoryTest extends Base{
-	
 	ManageCategoryPage managecategorypage;
 	HomePage homepage;
-	
-	@Test
-	
-	public void verifyIfUserCanAddCategory() throws IOException
-	{
-		String username=ExcelUtility.getStringData(1, 0, "loginpage");
-		String password=ExcelUtility.getStringData(1, 1, "loginpage");
-		String categorydetails=ExcelUtility.getStringData(1, 0, "managecategory");
-		LoginPage loginpage=new LoginPage(driver);
+
+	@Test(description="verify if the user can add a category.") 
+
+	public void verifyIfUserCanAddCategory() throws IOException {
+		String username = ExcelUtility.getStringData(1, 0, "loginpage");
+		String password = ExcelUtility.getStringData(1, 1, "loginpage");
+		String categorydetails = ExcelUtility.getStringData(1, 0, "managecategory");
+		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterTheUsername(username).enterThePassword(password);
-		//loginpage.enterThePassword(password);
-		loginpage.clickTheSignIn();
-		//ManageCategoryPage managecategorypage=new ManageCategoryPage(driver);
-		//PageUtility pageutility=new PageUtility();
-		//PageUtility.dragAndDrop(driver, selectgroups1, selectgroups2);
-		managecategorypage= homepage.clickCategoryMoreinfo();
+		homepage = loginpage.clickTheSignIn();
+		// ManageCategoryPage managecategorypage=new ManageCategoryPage(driver);
+		// PageUtility pageutility=new PageUtility();
+		// PageUtility.dragAndDrop(driver, selectgroups1, selectgroups2);
+		managecategorypage = homepage.clickCategoryMoreinfo();
 		managecategorypage.clickNewButton().enterCategory(categorydetails).fileUpload();
-		//managecategorypage.enterCategory(categorydetails);
-	//	managecategorypage.clickSelectgroups();
-		//managecategorypage.fileUpload();
-		boolean savecheck=managecategorypage.isSaveButtonDisplayed();
+		// managecategorypage.enterCategory(categorydetails);
+		// managecategorypage.clickSelectgroups();
+		// managecategorypage.fileUpload();
+		boolean savecheck = managecategorypage.isSaveButtonDisplayed();
 		Assert.assertTrue(savecheck, Constant.ADDCATEGORY);
 	}
 
