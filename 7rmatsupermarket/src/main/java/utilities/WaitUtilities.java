@@ -33,5 +33,20 @@ public class WaitUtilities {
 				.pollingEvery(Duration.ofSeconds(POLL_WAIT)).ignoring(NoSuchElementException.class);
 		fluentWait.until(ExpectedConditions.elementToBeClickable(target));
 	}
+	
+	public void waitForAlertToBeVisible(WebDriver driver) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+	    wait.until(ExpectedConditions.alertIsPresent());
+}
+
+public void waitForElementIsSelectable(WebDriver driver,WebElement element) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+    wait.until(ExpectedConditions.elementSelectionStateToBe(element, false));
+}
+
+public void waitForClick(WebDriver driver,WebElement element) {
+	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait.until(ExpectedConditions.elementToBeClickable(element));
+}
 
 }
